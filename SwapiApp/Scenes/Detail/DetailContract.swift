@@ -26,6 +26,6 @@ protocol DetailInteractorOutput: class {
 }
 
 protocol DetailViewBasis: class {
-    func onShowingCharacterData()
+    func onShowingCharacterData(characterData: CharacterData)
     func onShowingRequestError(message: String)
 }

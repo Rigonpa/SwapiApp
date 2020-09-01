@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ListRouter {
+class ListRouter {
     var rootNavigationController = UINavigationController()
     
     static func create() -> UINavigationController? {
@@ -19,6 +19,7 @@ final class ListRouter {
         
         let navigationController = UINavigationController(rootViewController: view)
         
+        router.rootNavigationController = navigationController
         presenter.router = router
         presenter.interactor = interactor
         presenter.view = view
@@ -33,6 +34,6 @@ extension ListRouter: ListRouterBasis {
     func characterIsSelected(withIdentifier identifier: String) {
         print("Pasar a la pantalla detalle!!!")
         guard let detailView = DetailRouter.create(withIdentifier: identifier) else { return }
-        rootNavigationController.pushViewController(detailView, animated: true)
+        self.rootNavigationController.pushViewController(detailView, animated: true)
     }
 }

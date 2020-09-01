@@ -21,12 +21,15 @@ extension DetailInteractor: DetailInteractorBasis {
                 self?.presenter?.failedCharacterRequest(message: "Error on fetching character data")
                 return
             }
-            do {
-                let characterData = try JSONDecoder().decode(CharacterData.self, from: data)
-                self?.presenter?.downloadedCharacterData(characterData: characterData)
-            } catch let error {
-                self?.presenter?.failedCharacterRequest(message: "Error on data parse process: \(error.localizedDescription)")
-                return
+            
+            DispatchQueue.main.async {
+                do {
+                    let characterData = try JSONDecoder().decode(CharacterData.self, from: data)
+                    self?.presenter?.downloadedCharacterData(characterData: characterData)
+                } catch let error {
+                    self?.presenter?.failedCharacterRequest(message: "Error on data parse process: \(error.localizedDescription)")
+                    return
+                }
             }
         }.resume()
     }

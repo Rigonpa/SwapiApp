@@ -117,8 +117,8 @@
 		936B3EAD24FD4F3600567F99 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				936B3EB024FD4FA300567F99 /* ListContract.swift */,
 				936B3EB224FD51AB00567F99 /* ListRouter.swift */,
+				936B3EB024FD4FA300567F99 /* ListContract.swift */,
 				936B3EAE24FD4F5700567F99 /* ListPresenter.swift */,
 				936B3EB424FD54AD00567F99 /* ListInteractor.swift */,
 				936B3EB624FD565D00567F99 /* ListView.swift */,
@@ -146,8 +146,8 @@
 		93CF9F7D24FE2D4300E27B2B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				93CF9F8024FE2D6900E27B2B /* DetailContract.swift */,
 				93CF9F8224FE2E4D00E27B2B /* DetailRouter.swift */,
+				93CF9F8024FE2D6900E27B2B /* DetailContract.swift */,
 				93CF9F7E24FE2D5500E27B2B /* DetailPresenter.swift */,
 				93CF9F8624FE2EE700E27B2B /* DetailInteractor.swift */,
 				93CF9F8424FE2E8500E27B2B /* DetailView.swift */,

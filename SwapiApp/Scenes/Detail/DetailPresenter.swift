@@ -22,7 +22,7 @@ extension DetailPresenter: DetailPresenterBasis {
 
 extension DetailPresenter: DetailInteractorOutput {
     func downloadedCharacterData(characterData: CharacterData) {
-        <#code#>
+        view?.onShowingCharacterData(characterData: characterData)
     }
     
     func failedCharacterRequest(message: String) {
