@@ -32,5 +32,7 @@ final class ListRouter {
 extension ListRouter: ListRouterBasis {
     func characterIsSelected(withIdentifier identifier: String) {
         print("Pasar a la pantalla detalle!!!")
+        guard let detailView = DetailRouter.create(withIdentifier: identifier) else { return }
+        rootNavigationController.pushViewController(detailView, animated: true)
     }
 }

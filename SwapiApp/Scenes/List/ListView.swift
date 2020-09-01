@@ -16,7 +16,11 @@ struct CharacterViewInfo {
 
 final class ListView: UIViewController {
     
-    var charactersViewInfo: [CharacterViewInfo] = []
+    var charactersViewInfo: [CharacterViewInfo] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -55,7 +59,6 @@ extension ListView: ListViewBasis {
     
     func onShowCharactersList(charactersViewInfo: [CharacterViewInfo]) {
         self.charactersViewInfo = charactersViewInfo
-        tableView.reloadData()
     }
 }
 
