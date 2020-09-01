@@ -10,25 +10,18 @@ import Foundation
 
 final class ListInteractor {
     weak var presenter: ListInteractorOutput?
+    var networkManager: NetworkManagerProtocol?
 }
 
 extension ListInteractor: ListInteractorBasis {
     func loadCharacters() {
-        guard let url = URL(string: "https://swapi.dev/api/people") else { return }
-        URLSession.shared.dataTask(with: url) {[weak self] (data, response, error) in
-            guard let data = data, error == nil else {
-                self?.presenter?.charactersRequestFailed(message: "Error on api request")
-                return
+        networkManager?.loadCharacters {[weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.presenter?.charactersRequestFailed(message: error.message)
+            case .success(let charactersData):
+                self?.presenter?.charactersDownloaded(charactersList: charactersData)
             }
-            let response = try? JSONDecoder().decode(SwapiResponse.self, from: data)
-            guard let charactersList = response?.results else {
-                self?.presenter?.charactersRequestFailed(message: "Error on response parse process")
-                return
-            }
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.presenter?.charactersDownloaded(charactersList: charactersList)
-            }
-        }.resume()
+        }
     }
 }

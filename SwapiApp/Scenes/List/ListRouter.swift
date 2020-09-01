@@ -16,6 +16,7 @@ class ListRouter {
         let presenter = ListPresenter()
         let interactor = ListInteractor()
         let view = ListView()
+        let networkManager = NetworkManager()
         
         let navigationController = UINavigationController(rootViewController: view)
         
@@ -25,6 +26,7 @@ class ListRouter {
         presenter.view = view
         view.presenter = presenter
         interactor.presenter = presenter
+        interactor.networkManager = networkManager
         
         return navigationController
     }
@@ -32,7 +34,6 @@ class ListRouter {
 
 extension ListRouter: ListRouterBasis {
     func characterIsSelected(withIdentifier identifier: String) {
-        print("Pasar a la pantalla detalle!!!")
         guard let detailView = DetailRouter.create(withIdentifier: identifier) else { return }
         self.rootNavigationController.pushViewController(detailView, animated: true)
     }
