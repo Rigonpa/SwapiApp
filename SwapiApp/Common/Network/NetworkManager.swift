@@ -17,7 +17,7 @@ protocol NetworkManagerProtocol {
     func loadCharacter(characterId: String, completion: @escaping (Result<CharacterData, MyError>) -> Void)
 }
 
-class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerProtocol {
     
     var baseURL: URL?
     init(baseURL: URL = URL(string: "https://swapi.dev/api/")!) {

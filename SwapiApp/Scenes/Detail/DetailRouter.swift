@@ -10,13 +10,19 @@ import UIKit
 
 final class DetailRouter {
     
+    var mainRouter: MainRouterAppProtocols?
+    
     static func create(withIdentifier identifier: String) -> UIViewController? {
+        
         let router = DetailRouter()
         let presenter = DetailPresenter()
         let interactor = DetailInteractor()
         let view = DetailView(characterIdentifier: identifier)
-        let networkManager = NetworkManager()
+        let serviceLocator = UIApplication.serviceLocator
+        let networkManager = serviceLocator.networkManager
+        let mainRouter = serviceLocator.mainRouter
         
+        router.mainRouter = mainRouter
         presenter.router = router
         presenter.view = view
         presenter.interactor = interactor
@@ -28,4 +34,8 @@ final class DetailRouter {
     }
 }
 
-extension DetailRouter: DetailRouterBasis {}
+extension DetailRouter: DetailRouterBasis {
+    func popViewController() {
+        mainRouter?.navigationController?.popViewController(animated: true)
+    }
+}

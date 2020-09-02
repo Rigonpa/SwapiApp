@@ -19,9 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let sceneWindow = UIWindow(windowScene: windowScene)
         window = sceneWindow
-        let navController = ListRouter.create()
-        window?.rootViewController = navController
-        window?.makeKeyAndVisible()
+        
+        UIApplication.serviceLocator.mainRouter.installMainViewController()
     }
 }
 

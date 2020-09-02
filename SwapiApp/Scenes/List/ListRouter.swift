@@ -9,18 +9,18 @@
 import UIKit
 
 class ListRouter {
-    var rootNavigationController = UINavigationController()
     
-    static func create() -> UINavigationController? {
+    var mainRouter: MainRouterAppProtocols?
+    
+    static func create() -> UIViewController? {
         let router = ListRouter()
         let presenter = ListPresenter()
         let interactor = ListInteractor()
         let view = ListView()
-        let networkManager = NetworkManager()
+        let serviceLocator = UIApplication.serviceLocator
+        let networkManager = serviceLocator.networkManager
         
-        let navigationController = UINavigationController(rootViewController: view)
-        
-        router.rootNavigationController = navigationController
+        router.mainRouter = serviceLocator.mainRouter
         presenter.router = router
         presenter.interactor = interactor
         presenter.view = view
@@ -28,13 +28,13 @@ class ListRouter {
         interactor.presenter = presenter
         interactor.networkManager = networkManager
         
-        return navigationController
+        return view
     }
 }
 
 extension ListRouter: ListRouterBasis {
     func characterIsSelected(withIdentifier identifier: String) {
         guard let detailView = DetailRouter.create(withIdentifier: identifier) else { return }
-        self.rootNavigationController.pushViewController(detailView, animated: true)
+        mainRouter?.push(viewController: detailView)
     }
 }

@@ -27,5 +27,6 @@ extension DetailPresenter: DetailInteractorOutput {
     
     func failedCharacterRequest(message: String) {
         view?.onShowingRequestError(message: message)
+        router?.popViewController()
     }
 }

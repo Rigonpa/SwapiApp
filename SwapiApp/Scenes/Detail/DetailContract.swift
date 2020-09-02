@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DetailRouterBasis {
-    
+    func popViewController()
 }
 
 protocol DetailPresenterBasis {
