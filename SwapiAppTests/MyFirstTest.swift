@@ -86,12 +86,17 @@ class MockPresenter: ListInteractorOutput {
 }
 
 class MockErrorNetworkManager: NetworkManagerProtocol {
+    func loadCharacter(characterId: String, completion: @escaping (Result<CharacterData, MyError>) -> Void) {
+        completion(.failure(MyError(message: "Failed on purpose")))
+    }
+    
     func loadCharacters(completion: @escaping (Result<[CharacterData], MyError>) -> Void) {
         completion(.failure(MyError(message: "We are gonna shout it loud, you are unbreakable")))
     }
 }
 
 class MockSuccessNetworkManager: NetworkManagerProtocol {
+    
     let characterData = CharacterData(name: "TestName",
                                       height: "TestHeight",
                                       mass: "TestMass",
@@ -111,5 +116,9 @@ class MockSuccessNetworkManager: NetworkManagerProtocol {
     
     func loadCharacters(completion: @escaping (Result<[CharacterData], MyError>) -> Void) {
         completion(.success([characterData, characterData, characterData]))
+    }
+    
+    func loadCharacter(characterId: String, completion: @escaping (Result<CharacterData, MyError>) -> Void) {
+        completion(.success(characterData))
     }
 }

@@ -23,6 +23,7 @@
 		93CF9F8524FE2E8500E27B2B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF9F8424FE2E8500E27B2B /* DetailView.swift */; };
 		93CF9F8724FE2EE700E27B2B /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF9F8624FE2EE700E27B2B /* DetailInteractor.swift */; };
 		93F9DB9224FECBC70051F79D /* MyFirstTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9DB9124FECBC70051F79D /* MyFirstTest.swift */; };
+		93F9DB9524FF90280051F79D /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9DB9424FF90280051F79D /* ListEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		93CF9F8424FE2E8500E27B2B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		93CF9F8624FE2EE700E27B2B /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		93F9DB9124FECBC70051F79D /* MyFirstTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstTest.swift; sourceTree = "<group>"; };
+		93F9DB9424FF90280051F79D /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,7 @@
 		936B3E8A24FD4EAF00567F99 /* SwapiApp */ = {
 			isa = PBXGroup;
 			children = (
-				936B3EB924FD570500567F99 /* DataManager */,
+				936B3EB924FD570500567F99 /* Network */,
 				936B3EB824FD56F800567F99 /* Scenes */,
 				936B3E8B24FD4EAF00567F99 /* AppDelegate.swift */,
 				936B3E8D24FD4EAF00567F99 /* SceneDelegate.swift */,
@@ -124,6 +126,7 @@
 				936B3EAE24FD4F5700567F99 /* ListPresenter.swift */,
 				936B3EB424FD54AD00567F99 /* ListInteractor.swift */,
 				936B3EB624FD565D00567F99 /* ListView.swift */,
+				93F9DB9424FF90280051F79D /* ListEntity.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -137,13 +140,13 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		936B3EB924FD570500567F99 /* DataManager */ = {
+		936B3EB924FD570500567F99 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				936B3EBA24FD576F00567F99 /* SwapiResponse.swift */,
+				93F9DB9324FF8FF70051F79D /* SWAPI */,
 				93A5829B24FEC5AE0072D3BF /* NetworkManager.swift */,
 			);
-			path = DataManager;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		93CF9F7D24FE2D4300E27B2B /* Detail */ = {
@@ -156,6 +159,14 @@
 				93CF9F8424FE2E8500E27B2B /* DetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		93F9DB9324FF8FF70051F79D /* SWAPI */ = {
+			isa = PBXGroup;
+			children = (
+				936B3EBA24FD576F00567F99 /* SwapiResponse.swift */,
+			);
+			path = SWAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 				936B3EBB24FD576F00567F99 /* SwapiResponse.swift in Sources */,
 				93A5829C24FEC5AE0072D3BF /* NetworkManager.swift in Sources */,
 				936B3E8E24FD4EAF00567F99 /* SceneDelegate.swift in Sources */,
+				93F9DB9524FF90280051F79D /* ListEntity.swift in Sources */,
 				936B3EB324FD51AB00567F99 /* ListRouter.swift in Sources */,
 				936B3EAF24FD4F5700567F99 /* ListPresenter.swift in Sources */,
 			);

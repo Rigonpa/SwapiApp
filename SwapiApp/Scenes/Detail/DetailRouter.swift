@@ -15,12 +15,14 @@ final class DetailRouter {
         let presenter = DetailPresenter()
         let interactor = DetailInteractor()
         let view = DetailView(characterIdentifier: identifier)
+        let networkManager = NetworkManager()
         
         presenter.router = router
         presenter.view = view
         presenter.interactor = interactor
         view.presenter = presenter
         interactor.presenter = presenter
+        interactor.networkManager = networkManager
         
         return view
     }

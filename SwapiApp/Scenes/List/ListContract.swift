@@ -28,7 +28,3 @@ protocol ListViewBasis: class {
     func failedCharactersRequest(message: String)
     func onShowCharactersList(charactersViewInfo: [CharacterViewInfo])
 }
-
-protocol NetworkManagerProtocol {
-    func loadCharacters(completion: @escaping (Result<[CharacterData], MyError>) -> Void)
-}

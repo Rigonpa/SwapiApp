@@ -29,3 +29,5 @@ protocol DetailViewBasis: class {
     func onShowingCharacterData(characterData: CharacterData)
     func onShowingRequestError(message: String)
 }
+
+
