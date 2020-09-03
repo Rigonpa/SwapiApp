@@ -18,7 +18,6 @@ class ListRouter {
         let interactor = ListInteractor()
         let view = ListView()
         let serviceLocator = UIApplication.serviceLocator
-        let networkManager = serviceLocator.networkManager
         
         router.mainRouter = serviceLocator.mainRouter
         presenter.router = router
@@ -26,7 +25,7 @@ class ListRouter {
         presenter.view = view
         view.presenter = presenter
         interactor.presenter = presenter
-        interactor.networkManager = networkManager
+        interactor.networkManager = serviceLocator.networkManager
         
         return view
     }

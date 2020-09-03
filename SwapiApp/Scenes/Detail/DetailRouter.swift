@@ -19,16 +19,16 @@ final class DetailRouter {
         let interactor = DetailInteractor()
         let view = DetailView(characterIdentifier: identifier)
         let serviceLocator = UIApplication.serviceLocator
-        let networkManager = serviceLocator.networkManager
         let mainRouter = serviceLocator.mainRouter
         
         router.mainRouter = mainRouter
         presenter.router = router
         presenter.view = view
         presenter.interactor = interactor
+        presenter.characterId = identifier
         view.presenter = presenter
         interactor.presenter = presenter
-        interactor.networkManager = networkManager
+        interactor.networkManager = serviceLocator.networkManager
         
         return view
     }

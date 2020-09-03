@@ -12,10 +12,16 @@ final class DetailPresenter {
     var router: DetailRouterBasis?
     weak var view: DetailViewBasis?
     var interactor: DetailInteractorBasis?
+    
+    var characterId: String?
 }
 
 extension DetailPresenter: DetailPresenterBasis {
-    func viewIsReady(characterId: String) {
+    func viewIsReady() {
+        guard let characterId = characterId else {
+            router?.popViewController()
+            return
+        }
         interactor?.downloadCharacterData(withIdentifier: characterId)
     }
 }
@@ -26,7 +32,6 @@ extension DetailPresenter: DetailInteractorOutput {
     }
     
     func failedCharacterRequest(message: String) {
-        view?.onShowingRequestError(message: message)
         router?.popViewController()
     }
 }

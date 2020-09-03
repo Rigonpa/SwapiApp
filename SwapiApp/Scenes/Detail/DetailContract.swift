@@ -13,7 +13,8 @@ protocol DetailRouterBasis {
 }
 
 protocol DetailPresenterBasis {
-    func viewIsReady(characterId: String)
+    var characterId: String? { get }
+    func viewIsReady()
 }
 
 protocol DetailInteractorBasis {
@@ -27,7 +28,6 @@ protocol DetailInteractorOutput: class {
 
 protocol DetailViewBasis: class {
     func onShowingCharacterData(characterData: CharacterData)
-    func onShowingRequestError(message: String)
 }
 
 

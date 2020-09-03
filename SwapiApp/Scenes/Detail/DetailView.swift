@@ -44,7 +44,7 @@ final class DetailView: UIViewController {
         
         setupView()
         
-        presenter?.viewIsReady(characterId: characterIdentifier)
+        presenter?.viewIsReady()
     }
     
     fileprivate func setupView() {
@@ -111,9 +111,5 @@ extension DetailView: DetailViewBasis {
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont(name: "Helvetica", size: 18)
         stackView.addArrangedSubview(contentLabel)
-    }
-    
-    func onShowingRequestError(message: String) {
-        print(message)
     }
 }
